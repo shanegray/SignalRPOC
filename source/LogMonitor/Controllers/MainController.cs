@@ -8,6 +8,5 @@ namespace LogMonitor.Controllers
         {
             return View();
         }
-
     }
 }

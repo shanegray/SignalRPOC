@@ -1,7 +1,8 @@
 #################
 ## Project Custom
 #################
-
+packages/
+!packages/repositories.config
 
 #################
 ## Eclipse
