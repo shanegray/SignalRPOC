@@ -1,9 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Hello</title>
+        <title>Log Application</title>   
+            <script src="@("/Scripts/jquery-1.9.1.js")"></script>
+            <script src="@("/Scripts/jquery.signalR-1.0.1.min.js")"></script>
     </head>
     <body>
-        <h1>Hello World</h1>
+        <ul id="messages"></ul>
+        <script>
+            $(function () {
+                var loghub = $.connection.logHub;
+                loghub.client.updateLogs = function (result) {
+                    console.log(result);
+                    $("#messages").append("<li>" + result.Id + "</li>");
+                };
+                $.connection.hub.start(function () { });
+            });
+        </script>
+        @Scripts.Render("~/signalr/hubs")
     </body>
 </html>

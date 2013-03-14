@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace LogMonitor
@@ -14,6 +15,11 @@ namespace LogMonitor
                 url: "",
                 defaults: new { controller = "Main", action = "Index" }
             );
+
+            routes.MapHttpRoute(
+                name: "MainApiRoute",
+                routeTemplate: "log",
+                defaults: new {controller = "Log"});
         }
     }
 }

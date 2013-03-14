@@ -9,8 +9,9 @@ namespace LogMonitor
         protected void Application_Start()
         {
             WebApiConfig.Register(GlobalConfiguration.Configuration);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);            
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteTable.Routes.MapHubs();
         }
     }
 }
